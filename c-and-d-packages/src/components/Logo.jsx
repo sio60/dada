@@ -8,4 +8,5 @@ export default function Logo({ size = 70 }) {
       style={{ display: "block", width: size, height: size, objectFit: "contain" }}
     />
   );
+  
 }

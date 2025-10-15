@@ -14,6 +14,7 @@ body {
 /* 컨테이너 */
 .cd-container { width: min(1120px, 92vw); margin: 0 auto; }
 
+
 /* 헤더 (밝은 톤) */
 .cd-header {
   position: sticky; top: 0; z-index: 50;

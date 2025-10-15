@@ -21,4 +21,5 @@ export default function PackageCard({ name, tagline, when, price, features = [],
       <div className="price">{price}</div>
     </article>
   );
+  
 }
