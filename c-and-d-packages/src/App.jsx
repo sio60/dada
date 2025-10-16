@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Logo from "./components/Logo.jsx";
 import PackageCard from "./components/PackageCard.jsx";
 import "./styles/app.css";
 
