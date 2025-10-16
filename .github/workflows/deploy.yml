@@ -23,21 +23,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+          cache-dependency-path: c-and-d-packages/package-lock.json
 
-      - name: Install deps
-        run: npm install
-        working-directory: c-and-d-packages   # ← 서브폴더 지정
+      - name: Install
+        working-directory: c-and-d-packages
+        run: npm ci
 
       - name: Build
+        working-directory: c-and-d-packages
+        env:
+          # Vite가 base를 제대로 빌드하도록(옵션) — vite.config.js의 base가 이미 '/dada/'면 없어도 됨
+          VITE_BASE_URL: /dada/
         run: npm run build
-        working-directory: c-and-d-packages   # ← 서브폴더 지정
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./c-and-d-packages/dist       # ← 빌드 산출물 경로
+          path: c-and-d-packages/dist  # ← 서브폴더 빌드 산출물
 
-          
   deploy:
     needs: build
     runs-on: ubuntu-latest
