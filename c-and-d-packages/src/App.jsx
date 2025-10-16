@@ -89,28 +89,6 @@ export default function App() {
 
   return (
     <>
-      {/* 헤더 */}
-      <header className="cd-header">
-        <div className="cd-container">
-          <button
-            className="cd-brand"
-            onClick={() => scrollTo("quick")}
-            aria-label="go home"
-          >
-            <Logo />
-          </button>
-          <nav className="cd-nav">
-            <button onClick={() => scrollTo("quick")}>빠른 선택</button>
-            <button onClick={() => scrollTo("packages")}>패키지</button>
-            <button onClick={() => scrollTo("details")}>패키지 설명</button>
-            <button onClick={() => scrollTo("addons")}>옵션</button>
-            <button onClick={() => scrollTo("care")}>유지보수</button>
-            <button onClick={() => scrollTo("process")}>진행</button>
-            <button onClick={() => scrollTo("faq")}>FAQ</button>
-          </nav>
-        </div>
-      </header>
-
       {/* 빠른 선택 가이드 */}
       <section id="quick" className="cd-section first">
         <div className="cd-container">
@@ -395,7 +373,7 @@ export default function App() {
           </div>
 
           <article id="pricing-factors" className="pkg-detail">
-            <h3>가격이 달라지는 기준(솔직하게)</h3>
+            <h3>가격이 달라지는 기준</h3>
             <ul className="bullets">
               <li>이미지·카피 준비 정도(우리가 손볼수록 시간 증가)</li>
               <li>수정 라운드 추가 여부</li>
