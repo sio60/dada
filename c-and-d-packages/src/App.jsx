@@ -60,7 +60,7 @@ const PACKAGES = [
   },
 ];
 
-/** 표 섹션들(가격 리밸런싱 적용) */
+/** 선택 옵션(기존 유지) */
 const ADDONS = [
   ["라이트 브랜딩", "로고 1안 + 브랜드 색/폰트 가이드 1세트", "30~60만"],
   ["카피라이팅", "메인/회사/서비스 카피 고도화", "30~60만"],
@@ -68,6 +68,33 @@ const ADDONS = [
   ["다국어", "한국어+영어 등(언어당)", "30~70만"],
   ["사진/이미지 편집", "스톡 추천 + 간단 보정/합성", "15~40만"],
   ["고급 인터랙션", "눈길 끄는 모션 1~2곳 정교 구현", "50~120만"],
+];
+
+/** 새로 추가: 디자인 전용 옵션(손님용) */
+const DESIGN = [
+  [
+    "로고 디자인(라이트)",
+    "텍스트/심볼 1안 제안 + 리비전 2회, 납품: PNG/SVG",
+    "35~70만",
+  ],
+  [
+    "브랜드 키트(미니)",
+    "메인/보조 색상·폰트·버튼/배지 스타일 가이드 1p PDF",
+    "25~55만",
+  ],
+  [
+    "스티커·굿즈 시안",
+    "워드마크/캐릭터 스티커 6종 or 머그/명함 1세트 시안",
+    "20~45만",
+  ],
+  [
+    "SNS 카드 템플릿(5종)",
+    "인스타/블로그용 편집 가능 템플릿 + 사용 가이드",
+    "15~35만",
+  ],
+  ["배너·썸네일 패키지", "메인 히어로 1 + 섹션 2 + OG 이미지 1", "15~30만"],
+  ["사진 리터칭 라이트", "노출/색감 보정 + 단순 합성(컷 10장 기준)", "15~30만"],
+  ["일러스트(라이트)", "마스코트/아이콘형 1컷(평면 스타일)", "20~40만"],
 ];
 
 const CARE = [
@@ -107,6 +134,10 @@ export default function App() {
             </button>
             <button onClick={() => scrollTo("budget")} className="pill">
               지금 당장 빠르고 저렴하게: <b>초간단 원페이지</b>
+            </button>
+            {/* 새로 추가: 디자인 버튼 */}
+            <button onClick={() => scrollTo("design")} className="pill">
+              브랜드/디자인만 필요해요: <b>디자인 옵션</b>
             </button>
           </div>
         </div>
@@ -256,10 +287,38 @@ export default function App() {
         </div>
       </section>
 
-      {/* 선택 옵션 */}
+      {/* 새로 추가: 디자인 옵션(손님용) */}
+      <section id="design" className="cd-section">
+        <div className="cd-container">
+          <h2>디자인 옵션(선택)</h2>
+          <p className="dim">
+            웹 개발 없이도 단독 의뢰 가능 · 필요 항목만 선택하세요.
+          </p>
+          <div className="table">
+            <div className="row head">
+              <div>항목</div>
+              <div>설명</div>
+              <div>비용</div>
+            </div>
+            {DESIGN.map(([a, b, c], i) => (
+              <div className="row" key={i}>
+                <div>{a}</div>
+                <div className="dim">{b}</div>
+                <div>{c}</div>
+              </div>
+            ))}
+          </div>
+          <p className="tip">
+            로고/브랜드 키트는 이후 웹·인쇄물에 그대로 확장 가능하도록
+            납품합니다.
+          </p>
+        </div>
+      </section>
+
+      {/* 선택 옵션(기능 중심) */}
       <section id="addons" className="cd-section">
         <div className="cd-container">
-          <h2>선택 옵션(필요할 때만)</h2>
+          <h2>선택 옵션(기능)</h2>
           <div className="table">
             <div className="row head">
               <div>옵션</div>
@@ -326,7 +385,9 @@ export default function App() {
           <details id="checklist" className="accordion">
             <summary>필요한 자료(체크리스트)</summary>
             <ul className="cols">
-              <li>로고 파일(없으면 라이트 브랜딩 권장)</li>
+              <li>
+                로고 파일(없으면 <b>디자인 옵션 → 로고 디자인(라이트)</b> 추천)
+              </li>
               <li>대표 사진 3~5장(없으면 스톡 대체 가능)</li>
               <li>회사/서비스 소개 문장(짧아도 OK, 우리가 다듬음)</li>
               <li>문의 방법(카톡/메일/폼 링크)</li>
