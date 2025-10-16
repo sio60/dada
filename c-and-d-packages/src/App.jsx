@@ -2,14 +2,14 @@ import { useEffect } from "react";
 import PackageCard from "./components/PackageCard.jsx";
 import "./styles/app.css";
 
-/** 카드용 요약 데이터(간단 요약 유지) */
+/** 카드용 요약 데이터(가격 리밸런싱 적용) */
 const PACKAGES = [
   {
     id: "starter",
     name: "Starter LP",
     tagline: "행사/제품 소개용 원페이지",
     when: "신제품/이벤트/예약·문의 유도 — 한 페이지로 핵심만",
-    price: "49만~79만 (1~2주, 수정 1회)",
+    price: "69만~99만 (1~2주, 수정 1회)",
     features: [
       "상단 큰 배너",
       "회사/서비스 요약",
@@ -25,7 +25,7 @@ const PACKAGES = [
     name: "Biz Mini",
     tagline: "회사 소개형 소규모 사이트(4페이지)",
     when: "회사 소개 + 서비스 + 문의까지 갖춘 미니 홈페이지",
-    price: "110만~160만 (2~3주, 수정 2회)",
+    price: "150만~210만 (2~3주, 수정 2회)",
     features: [
       "메인 / 회사소개 / 서비스 / 문의(4p)",
       "부드러운 등장 애니메이션",
@@ -38,7 +38,7 @@ const PACKAGES = [
     name: "Content Lite",
     tagline: "뉴스/블로그 있는 홍보형",
     when: "공지/소식/블로그 글을 직접 올리고 관리할 때",
-    price: "170만~230만 (약 3주, 수정 2회)",
+    price: "220만~300만 (약 3주, 수정 2회)",
     features: [
       "Biz Mini 전부 + 뉴스/블로그(목록/상세)",
       "구글시트 또는 JSON/MD 업로드",
@@ -51,7 +51,7 @@ const PACKAGES = [
     name: "Shop Link",
     tagline: "상품 소개 + 외부 결제 연동",
     when: "결제는 스마트스토어/토스 등으로 연결하면 되는 경우",
-    price: "220만~290만 (3~4주, 수정 2회)",
+    price: "280만~360만 (3~4주, 수정 2회)",
     features: [
       "상품 목록/상세(옵션/가격/재고 표기)",
       "외부 결제 페이지로 즉시 이동",
@@ -60,14 +60,14 @@ const PACKAGES = [
   },
 ];
 
-/** 표 섹션들 */
+/** 표 섹션들(가격 리밸런싱 적용) */
 const ADDONS = [
-  ["라이트 브랜딩", "로고 1안 + 브랜드 색/폰트 가이드 1세트", "20~40만"],
-  ["카피라이팅", "메인/회사/서비스 카피 고도화", "20~40만"],
-  ["간이 CMS", "구글시트/파일 업로드로 글·리스트 관리", "20~40만"],
-  ["다국어", "한국어+영어 등(언어당)", "20~50만"],
-  ["사진/이미지 편집", "스톡 추천 + 간단 보정/합성", "10~30만"],
-  ["고급 인터랙션", "눈길 끄는 모션 1~2곳 정교 구현", "30~80만"],
+  ["라이트 브랜딩", "로고 1안 + 브랜드 색/폰트 가이드 1세트", "30~60만"],
+  ["카피라이팅", "메인/회사/서비스 카피 고도화", "30~60만"],
+  ["간이 CMS", "구글시트/파일 업로드로 글·리스트 관리", "30~60만"],
+  ["다국어", "한국어+영어 등(언어당)", "30~70만"],
+  ["사진/이미지 편집", "스톡 추천 + 간단 보정/합성", "15~40만"],
+  ["고급 인터랙션", "눈길 끄는 모션 1~2곳 정교 구현", "50~120만"],
 ];
 
 const CARE = [
@@ -147,7 +147,7 @@ export default function App() {
                 <b>기본 작업:</b> SEO 기본 세팅, GA4 연동, 파비콘.
               </li>
               <li>
-                <b>기간/비용:</b> 1~2주 / 49만~79만 (수정 1회).
+                <b>기간/비용:</b> 1~2주 / <b>69만~99만</b> (수정 1회).
               </li>
               <li className="note">
                 <b>제외:</b> 블로그/뉴스 글관리, 결제, 다국어.
@@ -170,7 +170,7 @@ export default function App() {
                 알림.
               </li>
               <li>
-                <b>기간/비용:</b> 2~3주 / 110만~160만 (수정 2회).
+                <b>기간/비용:</b> 2~3주 / <b>150만~210만</b> (수정 2회).
               </li>
               <li className="note">
                 <b>제외:</b> 블로그/뉴스 글관리, 자체 결제.
@@ -199,7 +199,7 @@ export default function App() {
                 <b>부가기능:</b> 카테고리/태그, 썸네일, 글 숨김, 기본 검색.
               </li>
               <li>
-                <b>기간/비용:</b> 약 3주 / 170만~230만 (수정 2회).
+                <b>기간/비용:</b> 약 3주 / <b>220만~300만</b> (수정 2회).
               </li>
             </ul>
           </article>
@@ -216,7 +216,7 @@ export default function App() {
                 결제는 외부 결제 페이지로 이동.
               </li>
               <li>
-                <b>기간/비용:</b> 3~4주 / 220만~290만 (수정 2회).
+                <b>기간/비용:</b> 3~4주 / <b>280만~360만</b> (수정 2회).
               </li>
               <li className="note">
                 <b>제외:</b> 자체 결제/주문·정산 시스템(쇼핑몰 범주).
@@ -239,14 +239,18 @@ export default function App() {
                   글·사진 제공 시 깔끔 배치, <b>수정 1회 포함</b>
                 </li>
               </ul>
-              <div className="price">39만</div>
+              <div className="price">
+                <b>49만</b>
+              </div>
             </div>
             <div className="strip-item">
               <h3>카페·소상공 미니사이트</h3>
               <ul className="bullets">
                 <li>메뉴판, 매장 사진, 지도, 영업시간, “오늘의 메뉴(정적)”</li>
               </ul>
-              <div className="price">59만~79만</div>
+              <div className="price">
+                <b>79만~99만</b>
+              </div>
             </div>
           </div>
         </div>
@@ -333,7 +337,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* FAQ + 가격 변동 기준 */}
+      {/* FAQ + 가격 변동 기준 + 요금 정책 */}
       <section id="faq" className="cd-section">
         <div className="cd-container">
           <h2>자주 묻는 질문</h2>
@@ -379,10 +383,27 @@ export default function App() {
               <li>모션·인터랙션 수준</li>
               <li>다국어, 리스트 관리 등 추가 기능</li>
             </ul>
-            <p className="tip">
-              핵심: 예산 안에서 최대 효율을 목표로, <b>필수</b>와 <b>선택</b>을
-              명확히 나눠 안내합니다.
-            </p>
+
+            <h4 style={{ marginTop: 16 }}>요금 정책(추가 기준)</h4>
+            <ul className="bullets">
+              <li>
+                <b>추가 수정 라운드</b>: 회당 15만~25만
+              </li>
+              <li>
+                <b>긴급 진행(7영업일 내)</b>: 총액 +20%
+              </li>
+              <li>
+                <b>페이지 추가</b>: 내부 페이지 1p당 20만~35만
+              </li>
+              <li>
+                <b>서버/도메인</b>: 클라이언트 부담(저가: Cloudflare
+                Pages/Netlify/GP 무료 가능)
+              </li>
+              <li className="dim">
+                ※ 모든 표기는 <b>시작가</b>이며, 최종 금액은 자료 준비도·수정
+                라운드·모션 수준에 따라 확정됩니다.
+              </li>
+            </ul>
           </article>
         </div>
       </section>
