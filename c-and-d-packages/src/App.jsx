@@ -2,6 +2,14 @@ import { useEffect } from "react";
 import PackageCard from "./components/PackageCard.jsx";
 import "./styles/app.css";
 
+/** 옵션 다다익선 할인(상단 공지용) */
+const DISCOUNTS = [
+  ["옵션 2개 선택", "총액 -5%", "ADDONS/DESIGN 혼합 가능"],
+  ["옵션 3개 선택", "총액 -8%", "패키지와 동시 발주 시"],
+  ["옵션 4개 이상", "총액 -10%", "상시 최대 10%"],
+  ["디자인 번들", "묶음가 -12%", "로고+브랜드키트+SNS 템플릿"],
+];
+
 /** 카드용 요약 데이터(가격 리밸런싱 적용) */
 const PACKAGES = [
   {
@@ -9,7 +17,7 @@ const PACKAGES = [
     name: "Starter LP",
     tagline: "행사/제품 소개용 원페이지",
     when: "신제품/이벤트/예약·문의 유도 — 한 페이지로 핵심만",
-    price: "69만~99만 (1~2주, 수정 1회)",
+    price: "45만~69만 (1~2주, 수정 1회)",
     features: [
       "상단 큰 배너",
       "회사/서비스 요약",
@@ -25,7 +33,7 @@ const PACKAGES = [
     name: "Biz Mini",
     tagline: "회사 소개형 소규모 사이트(4페이지)",
     when: "회사 소개 + 서비스 + 문의까지 갖춘 미니 홈페이지",
-    price: "150만~210만 (2~3주, 수정 2회)",
+    price: "95만~140만 (2~3주, 수정 2회)",
     features: [
       "메인 / 회사소개 / 서비스 / 문의(4p)",
       "부드러운 등장 애니메이션",
@@ -38,7 +46,7 @@ const PACKAGES = [
     name: "Content Lite",
     tagline: "뉴스/블로그 있는 홍보형",
     when: "공지/소식/블로그 글을 직접 올리고 관리할 때",
-    price: "220만~300만 (약 3주, 수정 2회)",
+    price: "150만~210만 (약 3주, 수정 2회)",
     features: [
       "Biz Mini 전부 + 뉴스/블로그(목록/상세)",
       "구글시트 또는 JSON/MD 업로드",
@@ -51,7 +59,7 @@ const PACKAGES = [
     name: "Shop Link",
     tagline: "상품 소개 + 외부 결제 연동",
     when: "결제는 스마트스토어/토스 등으로 연결하면 되는 경우",
-    price: "280만~360만 (3~4주, 수정 2회)",
+    price: "190만~250만 (3~4주, 수정 2회)",
     features: [
       "상품 목록/상세(옵션/가격/재고 표기)",
       "외부 결제 페이지로 즉시 이동",
@@ -115,6 +123,33 @@ export default function App() {
 
   return (
     <>
+      {/* 상단: 옵션 다다익선 할인 */}
+      <section id="discounts" className="cd-section">
+        <div className="cd-container">
+          <p className="kicker">옵션 다다익선 할인</p>
+          <div className="table">
+            <div className="row head">
+              <div>조건</div>
+              <div>혜택</div>
+              <div>비고</div>
+            </div>
+            {DISCOUNTS.map(([a, b, c], i) => (
+              <div className="row" key={i}>
+                <div>{a}</div>
+                <div>
+                  <b>{b}</b>
+                </div>
+                <div className="dim">{c}</div>
+              </div>
+            ))}
+          </div>
+          <p className="tip">
+            * 패키지+옵션 동시 진행 기준 · 중복할인 불가 · 세부 견적에 따라
+            적용율이 달라질 수 있습니다.
+          </p>
+        </div>
+      </section>
+
       {/* 빠른 선택 가이드 */}
       <section id="quick" className="cd-section first">
         <div className="cd-container">
@@ -178,7 +213,7 @@ export default function App() {
                 <b>기본 작업:</b> SEO 기본 세팅, GA4 연동, 파비콘.
               </li>
               <li>
-                <b>기간/비용:</b> 1~2주 / <b>69만~99만</b> (수정 1회).
+                <b>기간/비용:</b> 1~2주 / <b>45만~69만</b> (수정 1회).
               </li>
               <li className="note">
                 <b>제외:</b> 블로그/뉴스 글관리, 결제, 다국어.
@@ -201,7 +236,7 @@ export default function App() {
                 알림.
               </li>
               <li>
-                <b>기간/비용:</b> 2~3주 / <b>150만~210만</b> (수정 2회).
+                <b>기간/비용:</b> 2~3주 / <b>95만~140만</b> (수정 2회).
               </li>
               <li className="note">
                 <b>제외:</b> 블로그/뉴스 글관리, 자체 결제.
@@ -230,7 +265,7 @@ export default function App() {
                 <b>부가기능:</b> 카테고리/태그, 썸네일, 글 숨김, 기본 검색.
               </li>
               <li>
-                <b>기간/비용:</b> 약 3주 / <b>220만~300만</b> (수정 2회).
+                <b>기간/비용:</b> 약 3주 / <b>150만~210만</b> (수정 2회).
               </li>
             </ul>
           </article>
@@ -247,7 +282,7 @@ export default function App() {
                 결제는 외부 결제 페이지로 이동.
               </li>
               <li>
-                <b>기간/비용:</b> 3~4주 / <b>280만~360만</b> (수정 2회).
+                <b>기간/비용:</b> 3~4주 / <b>190만~250만</b> (수정 2회).
               </li>
               <li className="note">
                 <b>제외:</b> 자체 결제/주문·정산 시스템(쇼핑몰 범주).
@@ -271,7 +306,7 @@ export default function App() {
                 </li>
               </ul>
               <div className="price">
-                <b>49만</b>
+                <b>35만</b>
               </div>
             </div>
             <div className="strip-item">
