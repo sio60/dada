@@ -1,4 +1,11 @@
-export default function PackageCard({ name, tagline, when, price, features = [], not = [] }) {
+export default function PackageCard({
+  name,
+  tagline,
+  when,
+  price,
+  features = [],
+  not = [],
+}) {
   return (
     <article className="card">
       <h3>{name}</h3>
@@ -6,14 +13,18 @@ export default function PackageCard({ name, tagline, when, price, features = [],
       <p className="dim">{when}</p>
 
       <ul className="bullets">
-        {features.map((f, i) => <li key={i}>{f}</li>)}
+        {features.map((f, i) => (
+          <li key={i}>{f}</li>
+        ))}
       </ul>
 
       {not.length > 0 && (
         <div className="not">
           <span>안 되는 것</span>
           <ul>
-            {not.map((n, i)=><li key={i}>{n}</li>)}
+            {not.map((n, i) => (
+              <li key={i}>{n}</li>
+            ))}
           </ul>
         </div>
       )}
@@ -21,5 +32,4 @@ export default function PackageCard({ name, tagline, when, price, features = [],
       <div className="price">{price}</div>
     </article>
   );
-  
 }
