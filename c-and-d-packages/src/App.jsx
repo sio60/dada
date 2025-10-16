@@ -474,7 +474,7 @@ export default function App() {
           <article id="pricing-factors" className="pkg-detail">
             <h3>가격이 달라지는 기준</h3>
             <ul className="bullets">
-              <li>이미지·카피 준비 정도(우리가 손볼수록 시간 증가)</li>
+              <li>이미지·카피 준비 정도</li>
               <li>수정 라운드 추가 여부</li>
               <li>모션·인터랙션 수준</li>
               <li>다국어, 리스트 관리 등 추가 기능</li>
